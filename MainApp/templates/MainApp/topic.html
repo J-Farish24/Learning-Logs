@@ -5,10 +5,11 @@
 <p>Topic: {{topic}}</p>
 
 <ul>
+    
+    {% for e in entries %}
     <li>
-        {% for e in entries %}
-        <p>{{ e.text }}</p>
-        <p>{{ e.date_added }}</p>
+        <p>{{ e.text|linebreaks }}</p>
+        <p>{{ e.date_added|date:'M d, H:i' }}</p>
     </li>
 
     {% empty %}
@@ -16,4 +17,8 @@
     {% endfor %}
 
 </ul>
+<p>
+    <a href="{% url 'MainApp:new_entry' topic.id %}">Add a new entry</a>
+</p>
+
 {% endblock content %}
