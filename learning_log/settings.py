@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     #my_apps
     'MainApp',
     'users',
+    #Third party apps
+    'bootstrap4',
+    #Default Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
