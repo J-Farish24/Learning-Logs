@@ -1,12 +1,14 @@
 {% extends "MainApp/base.html" %}
 
-{% block content %}
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-3">Track your learning.</h1>
 
-<p>Learning Logs</p>
+        <p class="lead">Make your own Learning Log, and keep a list of the
+            topics you're learning about. Whenever you learn something new
+            about a topic, make an entry summarizing what you've learned.</p>
 
-<p>Learning Logs helps you keep track of your 
-    learning, for any topic you're learning about.
-</p>
-
-
-{% endblock content %}
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
+            role="button">Register &raquo;</a>
+    </div>
+{% endblock page_header %}
