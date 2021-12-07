@@ -2,8 +2,8 @@
 
 {% block content %}
 
-    <form action="{% url 'users:register' %} method="post">
-        {%csrf_token %}
+    <form action="{% url 'users:register' %}" method="post">
+        {% csrf_token %}
         {{ form.as_p  }}
 
         <button name="submit">Register</button>
