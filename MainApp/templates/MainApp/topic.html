@@ -1,27 +1,27 @@
 {% extends "MainApp/base.html" %}
 
+{% block page_header %}
+<h3>{{ topic }}</h3>
+{% endblock page_header %}
+
 {% block content %}
+    <p>
+        <a href="{% url 'MainApp:new_entry' topic.id %}">Add a new entry</a>
+    </p>
 
-<p>Topic: {{topic}}</p>
-
-<ul>
-    
     {% for entry in entries %}
-    <li>
-        <p>{{ entry.text|linebreaks }}</p>
-        <p>{{ entry.date_added|date:'M d, H:i' }}</p>
-        <p>
-            <a href="{% url 'MainApp:edit_entry' entry.id %}">Edit entry</a>
-        </p>
-    </li>
-    
+        <div class="card mb-3">
+            <h4 class="card-header">
+                {{entry.date_added|date:'M d, Y H:i' }}
+                <small><a href="{% url 'MainApp:edit_entry' entry.id %}">
+                    edit entry</a></small>
+            </h4>
+            <div class="card-body">
+                {{ entry.text|linebreaks }}
+            </div>
+        </div>
     {% empty %}
-    <li> There are no entries for this topic yet.</li>
-    
+        <li> There are no entries for this topic yet.</li>
     {% endfor %}
-</ul>
-<p>
-    <a href="{% url 'MainApp:new_entry' topic.id %}">Add a new entry</a>
-</p>
 
 {% endblock content %}
