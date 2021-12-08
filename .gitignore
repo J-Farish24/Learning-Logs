@@ -1,2 +1,3 @@
-django_venv
 .django_venv
+_pycache_/
+*.sqlite3
